@@ -1,11 +1,11 @@
 import React from "react";
-import './ChatIntro.css'
+import './ChatWindow.css'
 
 export default ()=>{
   return(
     <div className="chatIntro">
 
-      <img src="https://raw.githubusercontent.com/CoreyTattooArt/whatsappclone/master/src/img/whatsappIntro.jpg" alt="" />
+ 
       <h1>Mantenha seu celular conectado</h1>
       <div className="initial">
         <div className="initial--box"></div> 

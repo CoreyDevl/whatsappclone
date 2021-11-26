@@ -1,0 +1,45 @@
+.chatIntro{
+  height: 100%;
+  padding-bottom: 89px;
+  background-color: #F8F9FA;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+.chatIntro img{
+  transform: scale(0.7);
+  margin-bottom: -20px
+}
+
+.chatIntro h1{
+  font-size: 32.1px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  color: #525252;
+  letter-spacing: -0.1px;
+  margin-top: -10px;
+}
+
+.initial{
+  display: flex;
+  justify-content: space-around;
+}
+
+.initial--box{
+  width: 80px;
+}
+
+.initial-msg{
+  box-sizing: border-box;
+  
+  font-size: 14px;
+  font-weight: 100;
+  color: #9c9c9c;
+  padding-top: 15px;
+  line-height: 20px;
+  text-align: center;
+  
+}
+

@@ -6,11 +6,22 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
 import ChatListItem from './components/ChatListItem';
 import ChatIntro from './components/ChatIntro';
+import ChatWindow from './components/ChatWindow';
 
 export default () => {
 
-  const [chatList, setChatList] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}])
-
+  const [chatList, setChatList] = useState([
+    {chatId: 1, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
+    {chatId: 2, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
+    {chatId: 3, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
+    {chatId: 4, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
+    {chatId: 5, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
+    {chatId: 6, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
+    {chatId: 7, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
+    {chatId: 8, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
+    {chatId: 9, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}
+  ]);
+  const [activeChat, setActiveChat] = useState({});
 
   return (
     <div className="app-windows">
@@ -41,14 +52,19 @@ export default () => {
               {chatList.map((item, key) => (
                 <ChatListItem
                   key={key}
+                  onClick={()=>setActiveChat(chatList[key])}
                 />
               ))}
             </div>
           </div>
         </div>
         <div className="contentarea">
-         
+          {activeChat.chatId !== undefined && 
+            <ChatWindow />
+          }      
+          {activeChat.chatId == undefined &&
             <ChatIntro />
+          }
           
         </div>
       </div>

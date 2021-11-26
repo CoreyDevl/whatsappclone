@@ -1,9 +1,12 @@
 import React from "react";
 import './ChatListItem.css'
 
-export default () => {
+export default ({onClick}) => {
   return(
-    <div className="chatListItem">
+    <div 
+    className="chatListItem"
+    onClick={onClick}
+    >
        <img className="chatListItem--avatar" src="https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg" alt="" />
        <div className="chatListItem--lines">
          <div className="chatListItem--line">
