@@ -4,8 +4,12 @@ import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
-
+import ChatListItem from './components/ChatListItem';
 export default () => {
+
+  const [chatList, setChatList] = useState([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}])
+
+
   return (
     <div className="app-windows">
       <div className="sidebar">
@@ -30,12 +34,17 @@ export default () => {
         </div>
         </div>
         <div className="chatlist">
-          chatlist
+          <div className="chatList--scrollbar">
+            {chatList.map((item, key) => (
+              <ChatListItem
+                key={key}
+              />
+            ))}
+          </div>
         </div>
       </div>
       <div className="contentarea">
-how
-      </div>
+  </div>
     </div>
   )
 }

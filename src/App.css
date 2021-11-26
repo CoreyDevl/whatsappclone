@@ -1,5 +1,13 @@
-*{
-box-sizing: border-box;
+* {box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth;
+}
+
+*::-webkit-scrollbar{
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-thumb{
+  background-color: rgba(0, 0, 0, .2);
 }
 
 body{
@@ -20,6 +28,7 @@ max-width: 415px;
 display: flex;
 flex-direction: column;
 border-right: 1px solid #DDD;
+
 }
 
 header{ 
@@ -82,5 +91,16 @@ display: flex;
 }
 
 .contentarea{
-display: cool;
+background-color: transparent;
+}
+
+.chatlist{
+  background-color: #FFF;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chatList--scrollbar{
+  max-height: 400px;
+  overflow-y: auto;
 }
