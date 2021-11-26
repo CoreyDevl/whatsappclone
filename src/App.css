@@ -28,7 +28,7 @@ background-color: #EDEDED;
 }
 
 .sidebar{
-width: 35%;
+min-width: 35%;
 max-width: 415px;
 display: flex;
 flex-direction: column;
@@ -94,17 +94,18 @@ display: flex;
   font-size: 14px;
   color: #0000005e;
 }
-
+ 
 .contentarea{
   display: flex;
   flex: 1;
-}
+  
+} 
 
 .chatlist{
   background-color: #FFF;
   flex: 1;
   overflow-y: auto;
-   
+  min-width: 350px;
 }
 
 .chatList--scrollbar{

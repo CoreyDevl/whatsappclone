@@ -1,10 +1,10 @@
 import React from "react";
 import './ChatListItem.css'
 
-export default ({onClick}) => {
+export default ({onClick, active}) => {
   return(
     <div 
-    className="chatListItem"
+    className= {`chatListItem ${active?'active':''}`} 
     onClick={onClick}
     >
        <img className="chatListItem--avatar" src="https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg" alt="" />
