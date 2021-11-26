@@ -1,0 +1,48 @@
+.chatWindow{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  
+ 
+}
+.chatWindow--header{
+  height: 60px;
+  border-bottom: 1px solid #CCC;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.chatWindow--headerInfo{
+  display: flex;
+  align-items: center;
+  cursor: pointer;  
+}
+
+.chatWindow--headerbuttons{
+display: flex;
+justify-content: flex-end;
+}  
+
+.chatWindow--btn{
+  color: #54585B;
+}
+
+.chatWindow--avatar{
+width: 40px;
+height: 40px;
+border-radius: 50px 50px;
+cursor: pointer;
+margin-left: 18px;
+margin-right: 18px;
+}
+
+.chatWindow--name{
+  font-size: 17px;
+  color: black;
+}
+
+.chatWindow--box{
+  width: 252px;
+}

@@ -72,9 +72,16 @@ display: flex;
   padding: 5px 15px;
 }
 
+.searchIcon{
+  color:#54585B;
+  transform: scale(0.6);
+  padding-right: 17px;
+}
+
 .search--input{
   background-color: #FFF;
   height: 40px;
+  font-size: 2px;
   border-radius: 20px;
   display: flex;
   align-items: center;

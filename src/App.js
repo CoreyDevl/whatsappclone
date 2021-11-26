@@ -12,7 +12,7 @@ export default () => {
 
   const [chatList, setChatList] = useState([
     {chatId: 1, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
-    {chatId: 2, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
+    {chatId: 2, title: 'Copérnico', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
     {chatId: 3, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
     {chatId: 4, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
     {chatId: 5, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
@@ -43,7 +43,9 @@ export default () => {
           </header>
           <div className="search">
           <div className="search--input">
-              <SearchIcon fontSize="small" style={{color: '#54585B'}}/>
+              <div className="searchIcon">
+                <SearchIcon />
+              </div>
               <input type="search" placeholder="Pesquisar ou começar uma nova conversa" name="" id="" />
           </div>
           </div>
@@ -52,6 +54,7 @@ export default () => {
               {chatList.map((item, key) => (
                 <ChatListItem
                   key={key}
+                  data={item}
                   active={activeChat.chatId === chatList[key].chatId}
                   onClick={()=>setActiveChat(chatList[key])}
                 />
