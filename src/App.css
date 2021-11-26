@@ -16,10 +16,14 @@ margin: 0;
 font-family: 'Segoe UI', Helvetica Neue, Helvetica, Lucida Grande, Arial;
 }
 
-.app-window{
+.app-windows{
 display: flex;
 height: 100vh;
 background-color: #EDEDED;
+}
+
+.mainContainer{
+  display: flex; 
 }
 
 .sidebar{
@@ -91,13 +95,17 @@ display: flex;
 }
 
 .contentarea{
-background-color: transparent;
+  display: flex;
+  flex: 1;
+  height: 100%;
+   
 }
 
 .chatlist{
   background-color: #FFF;
   flex: 1;
   overflow-y: auto;
+   
 }
 
 .chatList--scrollbar{
