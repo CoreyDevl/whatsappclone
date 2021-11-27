@@ -12,12 +12,21 @@ import { Autorenew } from "@material-ui/icons";
 
 export default ()=>{
 
+  const [text, setText] = useState('')
+
   const [emojiOpen, setEmojiOpen] = useState(false)
-
-  const handleEmojiClick = () => {
-
+  
+  const handleEmojiClick = (e, emojiObject) => {
+    setText(text + emojiObject.emoji)
   }
-
+  
+  const handleOpenEmoji = () => {
+    setEmojiOpen(true);
+    console.log('foi')
+  }
+  const handleCloseEmoji = () => {
+    setEmojiOpen(false);
+  }
   return(
     <div className="chatWindow">
       <div className="chatWindow--header">
@@ -52,21 +61,31 @@ export default ()=>{
       </div>
       <div className="chatWindow--footer">
         <div className="chatWindow--pre">
-   
-                <div className="chatWindow--btn">
-                <CloseIcon /><TagFacesIcon />
+                <div
+                onClick={handleCloseEmoji} 
+                style={{width: emojiOpen?40:0}}
+                className="chatWindow--btn">
+                  <CloseIcon />
+                </div>
+                <div 
+                onClick={handleOpenEmoji}
+                className="chatWindow--btn"
+                >
+                <TagFacesIcon style={{color:emojiOpen?'#030A22 ':'#919191'}}/>
                 </div>
                 <div className="chatWindow--btn">
                   <AttachFileIcon />
                 </div>
         </div>
         <div className="chatWindow--inputArea">
-          <input className="chatWindow--input" type="text" name="" id="" placeholder="Digite uma mensagem"/>
+          <input className="chatWindow--input" type="text" name="" id="" placeholder="Digite uma mensagem" value={text} onChange={e=>setText(e.target.value)}/>
         </div>
         <div className="chatWindow--pos">
         <div className="chatWindow--btn">
           <SendIcon id="sendBtn"/> 
-          <MicIcon></MicIcon>
+          </div>
+          <div className="chatWindow--btn">
+            <MicIcon />  {/* video em 2:20h */}
           </div>
         </div>
       </div>

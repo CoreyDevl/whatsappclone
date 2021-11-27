@@ -7,7 +7,7 @@
 }
 
 *::-webkit-scrollbar-thumb{
-  background-color: rgba(0, 0, 0, .2);
+  background-color: #00000033;
 }
 
 body{
@@ -112,7 +112,7 @@ display: flex;
   background-color: #FFF;
   flex: 1;
   overflow-y: auto;
-  min-width: 350px;
+  min-width: 35%;
 }
 
 .chatList--scrollbar{

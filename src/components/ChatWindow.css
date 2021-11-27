@@ -39,6 +39,8 @@ margin-left: 28px;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  overflow: hidden;
+  transition: all ease 0.3s;
 }
 
 .chatWindow--avatar{
@@ -86,9 +88,7 @@ margin-right: 18px;
   display: flex;
 }
 
-#mic{
-   
-}
+ 
 
 #sendBtn{
   margin-left:  0px;
@@ -119,6 +119,7 @@ flex: 1;
 }
 
 .chatWindow--emojiArea{
+  
   width: 91.5%;
   height: 200px;
   overflow-y: hidden;
