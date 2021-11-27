@@ -31,6 +31,7 @@ margin-left: 28px;
 }  
 
 .chatWindow--btn{
+  
   color: #54585B;
   margin-right: 28px;
   border-radius: 50%;
@@ -62,8 +63,83 @@ margin-right: 18px;
   flex: 1;
   overflow-y: auto;
   background-color: #ffffff;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  background-image: url('https://raw.githubusercontent.com/CoreyTattooArt/whatsappclone/master/src/img/whatsappBckgrnd.jpg');
-  
+  background-image: url('https://raw.githubusercontent.com/CoreyTattooArt/whatsappclone/master/src/img/whatsappBckgrnd2.jpg'); 
+}
+
+.chatWindow--footer{
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+
+.chatWindow--pre{ 
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: -15px;
+  margin-left: 10px;
+}
+
+.chatWindow--pos{
+  padding-left: 20px;
+  display: flex;
+}
+
+#mic{
+   
+}
+
+#sendBtn{
+  margin-left:  0px;
+  margin-right: 25px;
+}
+
+.chatWindow--inputArea{
+flex: 1;
+}
+
+.chatWindow--input{
+   
+  width: 100%;
+  height: 40px;
+  border: 0;
+  outline: 0;
+  border-radius: 25px 25px ;
+  background-color: #FFF;
+  font-size: 15px;
+  color: #4a4a4a;
+  padding-left: 15px;
+}
+
+.chatWindow--input::placeholder{
+  padding-left: 3px;
+  font-size: 15px;
+  color: #00000069;
+}
+
+.chatWindow--emojiArea{
+  width: 91.5%;
+  height: 200px;
+  overflow-y: hidden;
+  transition: all ease 0.5s;
+}
+
+.chatWindow--emojiArea aside.emoji-picker-react{
+  background-color: #EDEDED;
+  width: auto; 
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.chatWindow--emojiArea aside nav {
+  background-color: none;
+}
+
+.chatWindow--emojiArea div.content-wrapper::before {
+  background-color: none;
+}
+
+.chatWindow--emojiArea ul.emoji-group::before {
+  background-color: #EDEDED;
 }
