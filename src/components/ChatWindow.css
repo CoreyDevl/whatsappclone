@@ -61,8 +61,9 @@ margin-right: 18px;
 .chatWindow--body{
   flex: 1;
   overflow-y: auto;
-  background-color: #E5DDD5;
+  background-color: #ffffff;
   background-size: cover;
   background-position: center;
-  background-image: url();
+  background-image: url('https://raw.githubusercontent.com/CoreyTattooArt/whatsappclone/master/src/img/whatsappBckgrnd.jpg');
+  
 }
