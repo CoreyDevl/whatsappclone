@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
   
  
 }
@@ -23,10 +25,19 @@
 .chatWindow--headerbuttons{
 display: flex;
 justify-content: flex-end;
+transform: scale(0.8);
+margin-left: 28px;
+
 }  
 
 .chatWindow--btn{
   color: #54585B;
+  margin-right: 28px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .chatWindow--avatar{
@@ -44,5 +55,7 @@ margin-right: 18px;
 }
 
 .chatWindow--box{
-  width: 252px;
+  width: 252px;   
 }
+
+/*video no 1:47:00h*/

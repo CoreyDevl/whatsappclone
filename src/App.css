@@ -23,7 +23,7 @@ background-color: #EDEDED;
 }
 
 .mainContainer{
-  
+  overflow-x: hidden;
   display: flex; 
 }
 
