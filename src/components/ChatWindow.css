@@ -58,4 +58,11 @@ margin-right: 18px;
   width: 252px;   
 }
 
-/*video no 1:47:00h*/
+.chatWindow--body{
+  flex: 1;
+  overflow-y: auto;
+  background-color: #E5DDD5;
+  background-size: cover;
+  background-position: center;
+  background-image: url();
+}

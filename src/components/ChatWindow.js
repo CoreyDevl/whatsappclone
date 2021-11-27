@@ -25,7 +25,7 @@ export default ()=>{
         </div>
       </div>
       <div className="chatWindow--body">
-
+      
       </div>
       <div className="chatWindow--footer">
 
