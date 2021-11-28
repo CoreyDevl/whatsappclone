@@ -76,8 +76,8 @@ margin-right: 18px;
   flex: 1;
   overflow-y: auto;
   background-color: #ffffff;
-  background-size: contain;
-  background-position: center;
+  background-size: 60%;
+  background-position: top;
   background-image: url('https://raw.githubusercontent.com/CoreyTattooArt/whatsappclone/master/src/img/whatsappBckgrnd2.jpg'); 
 }
 

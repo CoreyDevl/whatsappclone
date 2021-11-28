@@ -12,10 +12,37 @@ import { Autorenew } from "@material-ui/icons";
 
 export default ()=>{
 
+
+  let recognition = null;
+  let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(SpeechRecognition !== undefined){
+    recognition = new SpeechRecognition();
+  }
+
   const [text, setText] = useState('')
 
   const [emojiOpen, setEmojiOpen] = useState(false)
   
+  const [listening, setListening] = useState(false)
+  const handleMicClick = () => {
+    if(recognition !== null){
+      recognition.onstart = () => {
+        setListening(true)
+      }
+      recognition.onend = () => {
+        setListening(false)
+      }
+      recognition.onresult = (e) => {
+        setText(e.results[0][0].transcript)
+      }
+      recognition.start();
+    }
+  }
+
+  const handleSendClick = () => {
+
+  }
+
   const handleEmojiClick = (e, emojiObject) => {
     setText(text + emojiObject.emoji)
   }
@@ -83,14 +110,20 @@ export default ()=>{
         <div className="chatWindow--pos">
 
           {text !==''&&
-            <div className="chatWindow--btnChange">
-          <SendIcon  /> 
+            <div 
+            onClick={handleSendClick}
+            className="chatWindow--btnChange"
+            >
+          <SendIcon/> 
           </div>
           }
            
            {text ==''&&
-          <div className="chatWindow--btnChange">
-          <MicIcon/> 
+          <div
+          onClick={handleMicClick} 
+          className="chatWindow--btnChange"
+          >
+          <MicIcon style={{color: listening? '#126ECE':'#54585B'}}/> 
           </div>
            }
         </div>
