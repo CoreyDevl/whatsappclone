@@ -34,10 +34,21 @@ margin-left: 28px;
   
   color: #54585B;
   margin-right: 28px;
-  border-radius: 50%;
+   
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all ease 0.3s;
+}
+
+.chatWindow--btnChange{
+  color: #54585B;
+  margin-right: 85px; 
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   cursor: pointer;
   overflow: hidden;
   transition: all ease 0.3s;

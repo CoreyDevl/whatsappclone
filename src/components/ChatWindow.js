@@ -81,12 +81,18 @@ export default ()=>{
           <input className="chatWindow--input" type="text" name="" id="" placeholder="Digite uma mensagem" value={text} onChange={e=>setText(e.target.value)}/>
         </div>
         <div className="chatWindow--pos">
-        <div className="chatWindow--btn">
-          <SendIcon id="sendBtn"/> 
+
+          {text !==''&&
+            <div className="chatWindow--btnChange">
+          <SendIcon  /> 
           </div>
-          <div className="chatWindow--btn">
-            <MicIcon />  {/* video em 2:20h */}
+          }
+           
+           {text ==''&&
+          <div className="chatWindow--btnChange">
+          <MicIcon/> 
           </div>
+           }
         </div>
       </div>
     </div>
