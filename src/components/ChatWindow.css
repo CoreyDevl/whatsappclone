@@ -73,12 +73,14 @@ margin-right: 18px;
 }
 
 .chatWindow--body{
+  max-width: 91.5%;
   flex: 1;
   overflow-y: auto;
   background-color: #ffffff;
   background-size: 60%;
   background-position: top;
-  background-image: url('https://raw.githubusercontent.com/CoreyTattooArt/whatsappclone/master/src/img/whatsappBckgrnd2.jpg'); 
+  background-image: url('https://raw.githubusercontent.com/CoreyTattooArt/whatsappclone/master/src/img/whatsappBckgrnd2.jpg');  
+  padding: 20px 100px 0px 30px;
 }
 
 .chatWindow--footer{

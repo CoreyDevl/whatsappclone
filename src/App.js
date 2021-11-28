@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
+import NewChat from './components/NewChat';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -22,18 +23,35 @@ export default () => {
     {chatId: 9, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}
   ]);
   const [activeChat, setActiveChat] = useState({});
+  const [user, setUser] = useState({
+    id:'bob',
+    avatar:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg',
+    name:'Corey'
+  })
+
+  const [showNewChat, setShowNewChat] = useState(false)
+
+  const handleNewChat = () => {
+    setShowNewChat(true)
+  }
 
   return (
     <div className="app-windows">
+      <NewChat 
+            chatList={chatList}
+            user={user}
+            show={showNewChat}
+            setShow={setShowNewChat}
+      />
       <div className="mainContainer">
         <div className="sidebar">
           <header>
-          <img className="header--avatar" src="https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg" alt="" />
+          <img className="header--avatar" src={user.avatar} alt="" />
           <div className="header--buttons">
             <div className="header--btn">
               <DonutLargeIcon style={{color: '#54585B'}}/>
             </div>
-            <div className="header--btn">
+            <div onClick={handleNewChat} className="header--btn">
               <ChatIcon style={{color: '#54585B'}}/>
             </div>
             <div className="header--btn">
@@ -65,7 +83,9 @@ export default () => {
         <div className="contentarea">
           
               {activeChat.chatId !== undefined &&
-                <ChatWindow />
+                <ChatWindow 
+                  user={user}
+                />
               }
               {activeChat.chatId == undefined &&
                 <ChatIntro />
