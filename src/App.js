@@ -8,6 +8,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import ChatListItem from './components/ChatListItem';
 import ChatIntro from './components/ChatIntro';
 import ChatWindow from './components/ChatWindow';
+import Login from './components/Login';
+
 
 export default () => {
 
@@ -23,16 +25,24 @@ export default () => {
     {chatId: 9, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}
   ]);
   const [activeChat, setActiveChat] = useState({});
-  const [user, setUser] = useState({
-    id:'bob',
-    avatar:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg',
-    name:'Corey'
-  })
-
+  const [user, setUser] = useState(null)   
   const [showNewChat, setShowNewChat] = useState(false)
 
   const handleNewChat = () => {
     setShowNewChat(true)
+  }
+   
+  const handleLoginData = async (u) => {
+    let newUser = {
+      id: u.uid,
+      name: u.displayName,
+      avatar: u.photoURL
+    }
+    setUser(newUser)
+  }
+
+  if(user === null){
+    return (<Login onReceive={handleLoginData} />)
   }
 
   return (
