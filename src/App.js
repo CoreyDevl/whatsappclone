@@ -9,23 +9,17 @@ import ChatListItem from './components/ChatListItem';
 import ChatIntro from './components/ChatIntro';
 import ChatWindow from './components/ChatWindow';
 import Login from './components/Login';
-
+import Api from './Api';
 
 export default () => {
 
-  const [chatList, setChatList] = useState([
-    {chatId: 1, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
-    {chatId: 2, title: 'Copérnico', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
-    {chatId: 3, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
-    {chatId: 4, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
-    {chatId: 5, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
-    {chatId: 6, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
-    {chatId: 7, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
-    {chatId: 8, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}, 
-    {chatId: 9, title: 'Leandrim', image:'https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg'}
-  ]);
+  const [chatList, setChatList] = useState([]);
   const [activeChat, setActiveChat] = useState({});
-  const [user, setUser] = useState(null)   
+  const [user, setUser] = useState({
+    id:'Er5HswBIwKWP2wrROxZZQOELjqY2',
+    name: 'Corey',
+    avatar: 'https://graph.facebook.com/4265018716936076/picture'
+  })   
   const [showNewChat, setShowNewChat] = useState(false)
 
   const handleNewChat = () => {
@@ -38,6 +32,7 @@ export default () => {
       name: u.displayName,
       avatar: u.photoURL
     }
+    await Api.addUser(newUser);
     setUser(newUser)
   }
 

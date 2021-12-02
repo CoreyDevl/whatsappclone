@@ -1,6 +1,6 @@
 import React from 'react';
 import './Login.css';
-import Api from '../Api';
+import Api from '../Api'; 
 
 export default ({onReceive}) => {
 
