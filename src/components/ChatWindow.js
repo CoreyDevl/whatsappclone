@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import './ChatWindow.css'
+import Api from "../Api";
 import SearchIcon from '@material-ui/icons/Search';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
@@ -12,7 +13,7 @@ import { Autorenew } from "@material-ui/icons";
 import MessageItem from "./MessageItem";
 
 
-export default ({user})=>{
+export default ({user, data})=>{
   const body = useRef()
 
   let recognition = null;
@@ -27,39 +28,23 @@ export default ({user})=>{
   
   const [listening, setListening] = useState(false)
 
-  const [list, setList] = useState([
-    {author:'bob', body:'bbabbababrrrubaba'},
-    {author: 'Lambrusker',body:'bbabbabaflinbaba'},
-    {author:'bob',body:'bbabbabadoinnbaba'},
-    {author:'bob', body:'bbabbababrrrubaba'},
-    {author: 'Lambrusker',body:'bbabbabaflinbaba'},
-    {author:'bob',body:'bbabbabadoinnbaba'},
-    {author:'bob', body:'bbabbababrrrubaba'},
-    {author: 'Lambrusker',body:'bbabbabaflinbaba'},
-    {author:'bob',body:'bbabbabadoinnbaba'},
-    {author:'bob', body:'bbabbababrrrubaba'},
-    {author: 'Lambrusker',body:'bbabbabaflinbaba'},
-    {author:'bob',body:'bbabbabadoinnbaba'},
-    {author:'bob', body:'bbabbababrrrubaba'},
-    {author: 'Lambrusker',body:'bbabbabaflinbaba'},
-    {author:'bob',body:'bbabbabadoinnbaba'},
-    {author:'bob', body:'bbabbababrrrubaba'},
-    {author: 'Lambrusker',body:'bbabbabaflinbaba'},
-    {author:'bob',body:'bbabbabadoinnbaba'},
-    {author:'bob', body:'bbabbababrrrubaba'},
-    {author: 'Lambrusker',body:'bbabbabaflinbaba'},
-    {author:'bob',body:'bbabbabadoinnbaba'},
-    {author:'bob', body:'bbabbababrrrubaba'},
-    {author: 'Lambrusker',body:'bbabbabaflinbaba'},
-    {author:'bob',body:'bbabbabadoinnbaba'}
-])
+  const [list, setList] = useState([])
 
+  const [users, setUsers] = useState([])
+
+  useEffect(()=>{
+
+    setList([]);
+    let unsub = Api.onChatContent(data.chatId, setList, setUsers);
+    return unsub;
+  }, [data.chatId])
+ 
   useEffect(()=>{
     if(body.current.scrollHeight > body.current.offsetHeight){
       body.current.scrollTop = body.current.scrollHeight - body.current.offsetHeight
     }
   }, [list])
-
+ 
   const handleMicClick = () => {
     if(recognition !== null){
       recognition.onstart = () => {
@@ -75,8 +60,18 @@ export default ({user})=>{
     }
   }
 
-  const handleSendClick = () => {
+  const handleInputKeyUp = (e) => {
+    if(e.key === "Enter"){
+      handleSendClick();
+    }
+  }
 
+  const handleSendClick = () => {
+    if(text !== ''){
+      Api.sendMessage(data, user.id, 'text', text, users);
+      setText('');
+      setEmojiOpen(false);
+     }
   }
 
   const handleEmojiClick = (e, emojiObject) => {
@@ -94,8 +89,8 @@ export default ({user})=>{
     <div className="chatWindow">
       <div className="chatWindow--header">
         <div className="chatWindow--headerInfo">
-          <img className="chatWindow--avatar" src="https://kariktheme.com/demos/default/assets/imgs/avatars/avatar-1.jpg" alt="" />
-          <div className="chatWindow--name">Bombombiju</div>
+          <img className="chatWindow--avatar" src={data.image} alt="" />
+          <div className="chatWindow--name">{data.title}</div>
         </div>
         <div className="chatWindow--headerbuttons">
           <div className="chatWindow--box"></div>
@@ -109,6 +104,7 @@ export default ({user})=>{
         </div>
       </div>
       <div ref={body} className="chatWindow--body">
+        
         {list.map((item, key)=> (
           <MessageItem 
             key={key}
@@ -147,7 +143,14 @@ export default ({user})=>{
                 </div>
         </div>
         <div className="chatWindow--inputArea">
-          <input className="chatWindow--input" type="text" name="" id="" placeholder="Digite uma mensagem" value={text} onChange={e=>setText(e.target.value)}/>
+          <input 
+          className="chatWindow--input" 
+          type="text"  
+          placeholder="Digite uma mensagem" 
+          value={text} 
+          onChange={e=>setText(e.target.value)}
+          onKeyUp={handleInputKeyUp}
+          />
         </div>
         <div className="chatWindow--pos">
 
